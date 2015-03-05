@@ -7,26 +7,20 @@ import java.util.logging.Logger;
 
 import com.filter.bloom.hash.HashFunction;
 import com.filter.bloom.hash.util.CalculationUtility;
+import com.filter.bloom.impl.BloomFilter;
 
-/**
- * <p>
- * This class implements the SHA1 hashing algorithm.
- * </p>
- * @author AmeyaCJoshi
- *
- */
-public class SHA1HashAlgorithm implements HashFunction {
-	
-	private static final Logger logger = Logger.getLogger(SHA1HashAlgorithm.class.getName());
-	private static final String SHA1_ALGO_NAME = "SHA-1";
+public class SHA512HashAlgorithm implements HashFunction {
+
+	private static final Logger logger = Logger.getLogger(SHA512HashAlgorithm.class.getName());
+	private static final String SHA512_ALGO_NAME = "SHA-512";
 	
 	@Override
     public int hashWithMod(String text) throws UnsupportedEncodingException {
 		MessageDigest algorithm = null;
 		try {
-	        algorithm = MessageDigest.getInstance(SHA1_ALGO_NAME);
+	        algorithm = MessageDigest.getInstance(SHA512_ALGO_NAME);
         } catch (NoSuchAlgorithmException e) {
-	        logger.info("Could not find " + SHA1_ALGO_NAME + " in the Java library.");
+	        logger.info("Could not find " + SHA512_ALGO_NAME + " in the Java library.");
         }
 		algorithm.update(text.getBytes("UTF-8"));
 		byte[] byteHash = algorithm.digest();

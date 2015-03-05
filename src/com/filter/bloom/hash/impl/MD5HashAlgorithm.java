@@ -10,23 +10,23 @@ import com.filter.bloom.hash.util.CalculationUtility;
 
 /**
  * <p>
- * This class implements the SHA1 hashing algorithm.
+ * This class implements the Cyclic Redundancy Check hashing algorithm.
  * </p>
  * @author AmeyaCJoshi
  *
  */
-public class SHA1HashAlgorithm implements HashFunction {
-	
-	private static final Logger logger = Logger.getLogger(SHA1HashAlgorithm.class.getName());
-	private static final String SHA1_ALGO_NAME = "SHA-1";
+public class MD5HashAlgorithm implements HashFunction {
+
+	private static final Logger logger = Logger.getLogger(MD5HashAlgorithm.class.getName());
+	private static final String MD5_ALGO_NAME = "MD5";
 	
 	@Override
     public int hashWithMod(String text) throws UnsupportedEncodingException {
 		MessageDigest algorithm = null;
 		try {
-	        algorithm = MessageDigest.getInstance(SHA1_ALGO_NAME);
+	        algorithm = MessageDigest.getInstance(MD5_ALGO_NAME);
         } catch (NoSuchAlgorithmException e) {
-	        logger.info("Could not find " + SHA1_ALGO_NAME + " in the Java library.");
+	        logger.info("Could not find " + MD5_ALGO_NAME + " in the Java library.");
         }
 		algorithm.update(text.getBytes("UTF-8"));
 		byte[] byteHash = algorithm.digest();
