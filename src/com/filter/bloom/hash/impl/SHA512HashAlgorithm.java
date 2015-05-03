@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import com.filter.bloom.hash.HashFunction;
 import com.filter.bloom.hash.util.CalculationUtility;
-import com.filter.bloom.impl.BloomFilter;
 
 public class SHA512HashAlgorithm implements HashFunction {
 
